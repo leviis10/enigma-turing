@@ -1,0 +1,15 @@
+- CRUD
+    - CREATE
+    - READ
+    - UPDATE
+    - DELETE
+- Array
+- Implement CRUD dengan array
+
+Customer:
+    - id -> int
+    - fullName -> string
+    - phoneNumber -> string
+    - nik -> string
+    - birtdate -> string
+    - semua field private
