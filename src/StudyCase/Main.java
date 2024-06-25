@@ -8,7 +8,6 @@ public class Main {
         CustomerService service = new CustomerService();
 
         // Testing Create
-        Customer nabila = service.create("Nabila");
         Customer randy = service.create("Randy");
         Customer levi = service.create("Levi");
         Customer irsyad = service.create("Irsyad");
