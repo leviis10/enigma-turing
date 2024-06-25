@@ -2,75 +2,64 @@ package StudyCase.Services;
 
 import StudyCase.Model.Customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerService {
-    private Customer[] db = new Customer[12];
-    static private int count = 0;
+    private List<Customer> db = new ArrayList<>();
+    private static int nextId = 1;
 
     public CustomerService() {
-        this.create(new Customer(1, "levi", "085156231354", "3372051005010007", "10-05-2001"));
-        this.create(new Customer(2, "randy", "000000000000", "0000000000000000", "00-00-0000"));
+        // seed database
+        this.create("Joni");
+        this.create("Steak");
     }
 
-    public void create(Customer request) {
-        if (count >= db.length) {
-            System.out.println("full bro");
-            return;
-        }
-
-        db[count] = request;
-        count++;
-        System.out.println("Customer created");
+    public Customer create(String request) {
+        Customer newCustomer = new Customer();
+        newCustomer.setName(request);
+        newCustomer.setId(nextId++);
+        db.add(newCustomer);
+        System.out.printf("Customer created named: %s%n", newCustomer.getName());
+        return newCustomer;
     }
 
     public void getAll() {
-        if (count == 0) {
-            System.out.println("nothing");
-            return;
-        }
-
         for (Customer customer : db) {
-            if (customer == null) {
-                continue;
-            }
             System.out.println(customer);
         }
     }
 
-    public void getById(int id) {
-        try {
-            for (Customer customer : db) {
-                if (customer.getId() != id) {
-                    continue;
-                }
-
-                System.out.println(customer);
-                return;
-            }
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void update(Customer request) {
-        for (int i = 0; i < count; i++) {
-            if (db[i].getId() != request.getId()) {
+    public void getById(Integer id) {
+        for (Customer customer : db) {
+            if (customer.getId() != id) {
                 continue;
             }
 
-            db[i] = request;
-            System.out.println("updated");
+            System.out.println(customer);
+            return;
+        }
+        System.out.println("Not found");
+    }
+
+    public void update(Customer targetRequest, Customer request) {
+        for (int i = 0; i < db.size(); i++) {
+            if (db.get(i).getId() != targetRequest.getId()) {
+                continue;
+            }
+
+            db.set(i, request);
             return;
         }
     }
 
     public void delete(int id) {
-        for (int i = 0; i < count; i++) {
-            if (db[i].getId() != id) {
+        for (int i = 0; i < db.size(); i++) {
+            if (id != db.get(i).getId()) {
                 continue;
             }
 
-            db[i] = null;
-            System.out.println("deleted");
+            db.remove(i);
             return;
         }
     }
