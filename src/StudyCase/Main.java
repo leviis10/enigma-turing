@@ -10,8 +10,6 @@ public class Main {
         // Testing Create
         Customer randy = service.create("Randy");
         Customer levi = service.create("Levi");
-        Customer irsyad = service.create("Irsyad");
-        Customer tommy = service.create("Tommy");
         System.out.println("=".repeat(20));
 
         // Testing Read All
@@ -31,7 +29,7 @@ public class Main {
         System.out.println("=".repeat(20));
 
         // Testing Delete
-        service.delete(tommy.getId());
+        service.delete(randy.getId());
         service.getAll();
     }
 }
