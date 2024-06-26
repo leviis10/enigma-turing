@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerService {
-    private List<Customer> db = new ArrayList<>();
-    private static int nextId = 1;
+    protected List<Customer> db = new ArrayList<>();
+    protected static int nextId = 1;
 
     public CustomerService() {
         // seed database
-        this.create("Joni");
-        this.create("Steak");
+//        this.create("Joni");
+//        this.create("Steak");
+        System.out.println("FROM CUSTOMER SERVICE");
     }
 
     public Customer create(String request) {

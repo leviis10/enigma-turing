@@ -33,6 +33,15 @@ public class Customer {
         this.name = name;
     }
 
+    public String toCSV() {
+        return String.format("%s,%s", this.id, this.name);
+    }
+
+    public static Customer fromCSV(String csv) {
+        String[] parts = csv.split(",");
+        return new Customer(Integer.parseInt(parts[0]), parts[1]);
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
