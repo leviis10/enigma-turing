@@ -1,4 +1,4 @@
-package StudyCase.Model;
+package StudyCase.model;
 
 public class Customer {
     private Integer id;

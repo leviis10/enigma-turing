@@ -1,6 +1,6 @@
-package StudyCase.Services;
+package StudyCase.service;
 
-import StudyCase.Model.Customer;
+import StudyCase.model.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,6 @@ public class CustomerService {
         newCustomer.setName(request);
         newCustomer.setId(nextId++);
         db.add(newCustomer);
-        System.out.printf("Customer created named: %s%n", newCustomer.getName());
         return newCustomer;
     }
 
@@ -30,16 +29,15 @@ public class CustomerService {
         }
     }
 
-    public void getById(Integer id) {
+    public Customer getById(Integer id) {
         for (Customer customer : db) {
             if (customer.getId() != id) {
                 continue;
             }
 
-            System.out.println(customer);
-            return;
+            return customer;
         }
-        System.out.println("Not found");
+        return null;
     }
 
     public void update(Customer targetRequest, Customer request) {
