@@ -1,0 +1,6 @@
+Lambda requirement;
+    - Interface
+    - Memiliki 1 method abstract (tidak punya body) -> { block }
+    - Anotasi @FunctionalInterface -> ini tidak wajib
+
+Lambda -> versi sederhana untuk membuat anonymous class
